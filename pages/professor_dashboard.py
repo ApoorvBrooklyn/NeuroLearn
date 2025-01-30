@@ -66,7 +66,7 @@ def professor_dashboard():
     
     selection = st.sidebar.selectbox(
         "Menu",
-        ["Dashboard", "Create Test", "Upload Notes", "View Submissions", "View Statistics"]
+        ["Dashboard", "Create Test", "Upload Notes", "View Submissions", "View Statistics", "Create a meet"]
     )
     
     if st.sidebar.button("Logout"):
