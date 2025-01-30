@@ -1,2 +1,7 @@
 myenv
 __pycache__
+study_sessions.json
+submissions.json
+tests.json
+users.json
+posts.json

@@ -73,6 +73,10 @@ def professor_dashboard():
         st.session_state.clear()
         st.switch_page("app.py")
     
+    if selection == "Create a Meet":
+        st.switch_page("pages/meeting.py")
+        return
+    
     submissions = load_content('submissions')
     if isinstance(submissions, dict):
         submissions_list = list(submissions.values())
