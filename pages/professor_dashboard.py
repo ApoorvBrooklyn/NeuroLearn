@@ -115,19 +115,33 @@ def professor_dashboard():
         file = st.file_uploader("Upload PDF", type=['pdf'])
         
         if st.button("Upload"):
-            if title and (content or file):
+            # Add more robust validation
+            if not title:
+                st.error("Please enter a title")
+            elif not content and not file:
+                st.error("Please provide either content or upload a file")
+            else:
                 notes = load_content('notes')
                 if isinstance(notes, dict):
                     notes = []
+                
+                # Handle file upload
+                file_content = file.getvalue() if file else None
+                
                 notes.append({
                     'title': title,
                     'content': content,
-                    'file': file.getvalue() if file else None,
+                    'file': file_content,
                     'uploaded_by': st.session_state.username,
                     'date': datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 })
+                
                 save_content('notes', notes)
                 st.success("Study material uploaded successfully!")
+                # Optional: Clear input fields after successful upload
+                title = ""   
+                content = ""
+                file = None
     
     elif selection == "View Submissions":
         st.header("View Submissions")
