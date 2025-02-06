@@ -104,7 +104,7 @@ def student_dashboard():
         return
     
     if selection == "Create a Meet":
-        st.switch_page("pages/meeting.py")
+        st.switch_page("pages/meet.py")
         return
     
     if selection == "Dashboard":
